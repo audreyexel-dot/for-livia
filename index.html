@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Livia 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pink: #ff6b9d;
+      --purple: #c084fc;
+      --yellow: #fbbf24;
+      --blue: #60a5fa;
+      --green: #34d399;
+      --orange: #fb923c;
+      --light: #fff0f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #fff; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,107,157,0.15);
+    }
+    .nav-logo { font-family: 'Dancing Script', cursive; font-size: 26px; color: var(--pink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: #555; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--pink); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f6 0%, #fdf4ff 40%, #f0f4ff 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 24px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-circle {
+      position: absolute; border-radius: 50%; opacity: 0.12;
+    }
+    .hero-bg-circle.c1 { width: 500px; height: 500px; background: var(--pink); top: -100px; left: -150px; }
+    .hero-bg-circle.c2 { width: 400px; height: 400px; background: var(--purple); bottom: -80px; right: -100px; }
+    .hero-bg-circle.c3 { width: 200px; height: 200px; background: var(--yellow); top: 40%; left: 5%; }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-emoji { font-size: 64px; margin-bottom: 20px; display: block; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .hero-subtitle {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff; font-size: 13px; font-weight: 600;
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 20px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 72px; color: #1a1a2e; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--pink); }
+    .hero-desc { font-size: 18px; color: #64748b; max-width: 520px; margin: 0 auto 36px; line-height: 1.8; }
+    .hero-from {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px; color: var(--purple); margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-pink {
+      background: linear-gradient(135deg, var(--pink), #ff8fab);
+      color: #fff; padding: 14px 30px; border-radius: 50px;
+      font-weight: 700; font-size: 15px; transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 24px rgba(255,107,157,0.35);
+    }
+    .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,107,157,0.45); }
+    .btn-outline-pink {
+      border: 2px solid var(--pink); color: var(--pink);
+      padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 15px;
+      transition: all 0.3s;
+    }
+    .btn-outline-pink:hover { background: var(--pink); color: #fff; }
+
+    /* Floating hearts */
+    .hearts { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
+    .heart {
+      position: absolute; font-size: 20px; opacity: 0.5;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 90px 60px; }
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      padding: 5px 16px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 52px; color: #1a1a2e; margin-bottom: 12px; text-align: center;
+    }
+    .section-sub { text-align: center; color: #64748b; font-size: 16px; margin-bottom: 56px; }
+
+    /* ===== LOVE LETTER ===== */
+    .love-letter { background: #fff0f6; }
+    .letter-wrapper {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border-radius: 24px;
+      padding: 56px 64px;
+      box-shadow: 0 20px 60px rgba(255,107,157,0.12);
+      border: 1px solid rgba(255,107,157,0.15);
+      position: relative;
+    }
+    .letter-stamp {
+      position: absolute; top: -20px; right: 40px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff; padding: 8px 20px; border-radius: 8px;
+      font-size: 13px; font-weight: 700;
+    }
+    .letter-date { color: #94a3b8; font-size: 13px; margin-bottom: 28px; }
+    .letter-greeting {
+      font-family: 'Dancing Script', cursive;
+      font-size: 32px; color: var(--pink); margin-bottom: 24px;
+    }
+    .letter-body { font-size: 16px; color: #475569; line-height: 2; }
+    .letter-body p { margin-bottom: 18px; }
+    .letter-body .highlight { color: var(--pink); font-weight: 600; }
+    .letter-sign {
+      margin-top: 36px; text-align: right;
+    }
+    .letter-sign p { color: #94a3b8; font-size: 14px; margin-bottom: 6px; }
+    .letter-sign .nama {
+      font-family: 'Dancing Script', cursive;
+      font-size: 36px; color: var(--purple);
+    }
+    .letter-deco { text-align: center; font-size: 28px; margin: 24px 0; letter-spacing: 8px; }
+
+    /* ===== REASONS ===== */
+    .reasons { background: #fff; }
+    .reasons-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 960px; margin: 0 auto;
+    }
+    .reason-card {
+      border-radius: 20px; padding: 32px 24px; text-align: center;
+      transition: transform 0.3s;
+    }
+    .reason-card:hover { transform: translateY(-6px); }
+    .reason-card:nth-child(1) { background: #fff0f6; border: 1.5px solid #ffc6d9; }
+    .reason-card:nth-child(2) { background: #fdf4ff; border: 1.5px solid #e9d5ff; }
+    .reason-card:nth-child(3) { background: #fefce8; border: 1.5px solid #fde68a; }
+    .reason-card:nth-child(4) { background: #eff6ff; border: 1.5px solid #bfdbfe; }
+    .reason-card:nth-child(5) { background: #f0fdf4; border: 1.5px solid #bbf7d0; }
+    .reason-card:nth-child(6) { background: #fff7ed; border: 1.5px solid #fed7aa; }
+    .reason-num {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px; font-weight: 700; margin-bottom: 8px;
+    }
+    .reason-card:nth-child(1) .reason-num { color: var(--pink); }
+    .reason-card:nth-child(2) .reason-num { color: var(--purple); }
+    .reason-card:nth-child(3) .reason-num { color: var(--yellow); }
+    .reason-card:nth-child(4) .reason-num { color: var(--blue); }
+    .reason-card:nth-child(5) .reason-num { color: var(--green); }
+    .reason-card:nth-child(6) .reason-num { color: var(--orange); }
+    .reason-card h3 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+    .reason-card p { font-size: 14px; color: #64748b; line-height: 1.7; }
+
+    /* ===== TIMELINE ===== */
+    .timeline-section { background: linear-gradient(135deg, #fdf4ff, #fff0f6); }
+    .timeline { max-width: 700px; margin: 0 auto; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--pink), var(--purple));
+      transform: translateX(-50%);
+    }
+    .tl-item { display: flex; gap: 40px; margin-bottom: 48px; align-items: flex-start; }
+    .tl-item:nth-child(even) { flex-direction: row-reverse; }
+    .tl-content {
+      flex: 1; background: #fff; border-radius: 16px; padding: 24px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .tl-item:nth-child(even) .tl-content { text-align: right; }
+    .tl-dot {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 4px 12px rgba(255,107,157,0.35); z-index: 1;
+    }
+    .tl-date { font-size: 12px; font-weight: 700; color: var(--pink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .tl-content h3 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+    .tl-content p { font-size: 14px; color: #64748b; line-height: 1.7; }
+
+    /* ===== POEM ===== */
+    .poem-section { background: #1a1a2e; color: #fff; text-align: center; }
+    .poem-section .section-title { color: #fff; }
+    .poem-section .section-sub { color: #94a3b8; }
+    .poem-wrapper { max-width: 580px; margin: 0 auto; }
+    .poem-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 20px;
+      line-height: 2.2; color: #e2e8f0;
+    }
+    .poem-text .poem-line-highlight { color: #ff8fab; }
+    .poem-stars { font-size: 28px; margin: 32px 0; letter-spacing: 12px; opacity: 0.6; }
+
+    /* ===== GALLERY (placeholder) ===== */
+    .gallery { background: #fff; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; max-width: 1000px; margin: 0 auto;
+    }
+    .gallery-item {
+      border-radius: 16px; overflow: hidden; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; cursor: pointer; transition: transform 0.3s;
+    }
+      .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+    .gallery-item:hover { transform: scale(1.04); }
+    .gallery-item:nth-child(1) { background: linear-gradient(135deg, #fff0f6, #fce7f3); grid-column: span 2; grid-row: span 2; font-size: 80px; }
+    .gallery-item:nth-child(2) { background: linear-gradient(135deg, #fdf4ff, #ede9fe); }
+    .gallery-item:nth-child(3) { background: linear-gradient(135deg, #fefce8, #fef9c3); }
+    .gallery-item:nth-child(4) { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+    .gallery-item:nth-child(5) { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+    .gallery-note { text-align: center; color: #94a3b8; font-size: 14px; margin-top: 20px; font-style: italic; }
+
+    /* ===== PROMISE ===== */
+    .promise { background: linear-gradient(135deg, #fff0f6, #fdf4ff); }
+    .promise-cards {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;
+    }
+    .promise-card {
+      background: #fff; border-radius: 20px; padding: 28px 24px;
+      text-align: center; width: 250px;
+      box-shadow: 0 8px 28px rgba(255,107,157,0.1);
+      border: 1.5px solid rgba(255,107,157,0.12);
+      transition: transform 0.3s;
+    }
+    .promise-card:hover { transform: translateY(-5px); }
+    .promise-icon { font-size: 40px; margin-bottom: 14px; }
+    .promise-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+    .promise-card p { font-size: 13px; color: #64748b; line-height: 1.7; }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff; text-align: center; padding: 100px 60px;
+    }
+    .final-cta h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 64px; margin-bottom: 16px;
+    }
+    .final-cta p { font-size: 18px; opacity: 0.9; max-width: 500px; margin: 0 auto 36px; line-height: 1.8; }
+    .btn-white {
+      background: #fff; color: var(--pink);
+      padding: 14px 36px; border-radius: 50px;
+      font-weight: 800; font-size: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.2); }
+    .final-hearts { font-size: 32px; margin-top: 36px; letter-spacing: 10px; opacity: 0.7; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a1a2e; color: #94a3b8;
+      text-align: center; padding: 32px 24px;
+      font-size: 14px;
+    }
+    footer .footer-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 28px; color: var(--pink); margin-bottom: 8px;
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 50px; height: 50px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff; font-size: 22px; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 20px rgba(255,107,157,0.4);
+      transition: transform 0.3s; z-index: 999;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s;
+    }
+    .back-top.visible { opacity: 1; pointer-events: all; }
+    .back-top:hover { transform: translateY(-3px); }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navbar { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 46px; }
+      section { padding: 60px 20px; }
+      .reasons-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; font-size: 48px; }
+      .letter-wrapper { padding: 36px 28px; }
+      .timeline::before { left: 22px; }
+      .tl-item, .tl-item:nth-child(even) { flex-direction: row; }
+      .tl-item:nth-child(even) .tl-content { text-align: left; }
+      .section-title { font-size: 38px; }
+      .final-cta h2 { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">For Livia 💕</div>
+    <ul class="nav-links">
+      <li><a href="#surat">Surat Cinta</a></li>
+      <li><a href="#alasan">Alasannya</a></li>
+      <li><a href="#timeline">Kenangan</a></li>
+      <li><a href="#puisi">Puisi</a></li>
+      <li><a href="#janji">Janji</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hearts" id="hearts"></div>
+    <div class="hero-bg-circle c1"></div>
+    <div class="hero-bg-circle c2"></div>
+    <div class="hero-bg-circle c3"></div>
+    <div class="hero-content">
+      <span class="hero-emoji">💌</span>
+      <div class="hero-subtitle">Dibuat dengan sepenuh hati</div>
+      <h1>Untuk <span>Livia Erwanto</span>,<br/>yang selalu manis</h1>
+      <p class="hero-desc">
+        Ada hal-hal yang susah diungkapkan dengan kata-kata biasa.
+        Dan kebetulan aku nganggur jadi aku berniat membuatkan sebuah dunia kecil khusus untukmu.
+      </p>
+      <p class="hero-from">— dari Audrey Exel Gunawan 🌸</p>
+      <div class="hero-btns">
+        <a href="#surat" class="btn-pink">💌 Dear Livia</a>
+        <a href="#alasan" class="btn-outline-pink">🌸Kenapa Kamu?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <section class="love-letter" id="surat">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:#fce7f3; color:#db2777;">💌 Surat Cinta</span>
+    </div>
+    <div class="section-title">Surat untuk yang Spesial</div>
+    <p class="section-sub">Kata-kata ini kutuangkan dari dalam hatiku</p>
+    <div class="letter-wrapper fade-in">
+      <div class="letter-stamp">💌 With Love</div>
+      <div class="letter-date">📅 2026, di suatu hari yang indah ketika ibadah PMK</div>
+      <div class="letter-greeting">Livia tersayang,</div>
+      <div class="letter-body">
+        <p>
+          Pertama-tama, aku ingin bersyukur kepada Tuhan karena telah memberiku kesempatan melayani di Persekutuan Mahasiswa Kristen (PMK). Di tempat itu aku belajar banyak hal tentang kesetiaan, melewati suka dan duka, serta tetap bertahan ketika beberapa teman memilih berhenti. Jujur, ada banyak momen ketika aku merasa lelah dan burnout, <span class="highlight"> tetapi aku terus berdoa agar Tuhan menguatkanku untuk tetap melayani di tengah segala proses yang ada.</span>
+          meskipun hari itu terasa berat.
+        </p>
+        <p>
+          Lalu Tuhan menghadirkanmu. Entah sejak kapan, tetapi kehadiranmu perlahan membuat hari-hariku berbeda. Keceriaanmu, semangatmu, dan caramu membawa sukacita saat menjadi Usher kepada orang-orang di sekitarmu selalu menarik perhatianku. Bahkan ketika aku diminta memilih koordinator acara pelantikan, nama pertama yang terlintas di pikiranku adalah namamu: <span class="highlight">Livia Erwanto.</span>
+        </p>
+        <p>
+          Lalu tibalah rapat pertama, Malam rapat sederhana yang terasa hangat, dan aku mendapati diriku selalu menantikan kehadiranmu, hari dimana untuk pertama kalinya kita jalan berdua dan berbagi tawa. Disusul dengan momen ketika kamu memberiku bunga hydrangea di tengah hujan deras. Mungkin terlihat sederhana, tetapi bagiku dua hari itu menjadi kenangan yang sangat berharga dan sulit dilupakan.
+        </p>
+        <p>
+          Aku bersyukur karena mengenalmu. Kamu mengajarkanku hal-hal yang dulu sering kuabaikan: menjaga diri, beristirahat dengan cukup, dikhawatirkan, dimarahi, dipedulikan, dan merasakan perhatian yang selama ini jarang kurasakan. Bahkan ketika kamu memutuskan untuk mundur dari kepengurusan, <span class="highlight">rasa syukurku tidak berubah, karena aku percaya Tuhan mempertemukanku denganmu untuk suatu alasan yang baik.</span>
+        </p>
+        <p>
+          Livia Erwanto, aku tidak meminta apa pun darimu. Aku hanya ingin kamu tahu bahwa ada seseorang yang selalu mendoakan kebahagiaanmu, dan orang itu adalah aku. Terima kasih karena telah hadir di duniaku dan menjadi salah satu hadiah terindah yang Tuhan berikan dalam hidupku. Aku berharap hubungan, komitmen, dan cerita yang sedang kita jalani ini dapat terus berlanjut sesuai dengan kehendak-Nya. <span class="highlight">I love you. 🌸</span>
+        </p>
+      </div>
+      <div class="letter-deco">💕 ✨ 🌸 ✨ 💕</div>
+      <div class="letter-sign">
+        <p>With Love,</p>
+        <div class="nama">Audrey Exel Gunawan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="reasons" id="alasan">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:#fdf4ff; color:#9333ea;">🌸 Alasan</span>
+    </div>
+    <div class="section-title">Kenapa Kamu, Livia?</div>
+    <p class="section-sub">Bukan 1, bukan 2 ada banyak alasannya</p>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in">
+        <div class="reason-num">01</div>
+        <h3>Senyummu itu obat</h3>
+        <p>Serius deh, satu senyum dari kamu bisa langsung bikin mood aku naik 1000 persen. Itu ajaib banget.</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">02</div>
+        <h3>Kamu apa adanya</h3>
+        <p>Di dunia yang penuh kepura-puraan, kamu hadir jadi diri sendiri. Dan itu justru yang paling membuatku kagum.</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">03</div>
+        <h3>Caramu peduli</h3>
+        <p>Hal-hal kecil yang kamu lakukan untuk orang-orang di sekitarmu itu menunjukkan betapa besarnya hatimu, dan rasa kepedulian itulah yang membuatku merasa aman dan merasa disayang.</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">04</div>
+        <h3>Kamu bikin aku lebih baik</h3>
+        <p>Tanpa kamu sadari, Kehadiranmu membuatku merasa bahwa aku juga berhak merasakan hal manis, dan itulah yang kudapat dari kamu.</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">05</div>
+        <h3>Matamu yang jujur</h3>
+        <p>Waktu kamu bicara kepadaku dengan sepenuh hati, matamu ikut berbicara. Dan aku selalu terpesona dengan mata indah yang memandangku dengan cara yang berbeda.</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">06</div>
+        <h3>Kamu adalah kamu, Livia Erwanto</h3>
+        <p>Tidak ada alasan yang lebih kuat dari ini: kamu adalah Livia, dan itu lebih dari cukup. Terimakasih sudah menjadi salah satu part terbaik dalam hidupku.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" id="timeline">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:#fce7f3; color:#db2777;">⏰ Kenangan</span>
+    </div>
+    <div class="section-title">Momen yang Tak Terlupakan</div>
+    <p class="section-sub">Setiap detail masih aku ingat dengan jelas</p>
+    <div class="timeline">
+
+      <div class="tl-item fade-in">
+        <div class="tl-content">
+          <div class="tl-date">Awal segalanya</div>
+          <h3>Pertama kali bertemu 👀</h3>
+          <p>Waktu itu aku tidak tahu bahwa pertemuan biasa itu akan menjadi momen yang paling aku syukuri hingga sekarang.</p>
+        </div>
+        <div class="tl-dot">✨</div>
+        <div style="flex:1"></div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div style="flex:1"></div>
+        <div class="tl-dot">😄</div>
+        <div class="tl-content">
+          <div class="tl-date">Waktu itu</div>
+          <h3>Pertama kali kamu ketawa 😄</h3>
+          <p>Saat itu aku sadar suara tawamu adalah salah satu suara paling indah yang pernah aku dengar.</p>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-content">
+          <div class="tl-date">Momen kecil</div>
+          <h3>Ngobrol sampai lupa waktu 🌙</h3>
+          <p>Entah membahas hal serius atau hal-hal random, aku selalu tidak mau percakapan itu berakhir.</p>
+        </div>
+        <div class="tl-dot">🌙</div>
+        <div style="flex:1"></div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div style="flex:1"></div>
+        <div class="tl-dot">💡</div>
+        <div class="tl-content">
+          <div class="tl-date">Saat itu aku sadar</div>
+          <h3>Aku jatuh hati 💫</h3>
+          <p>Ada banyak momen, yang kamu berikan kepadaku, aku merasa hangat dan ketika itu aku sadar: "Wah, aku suka sama Livia."</p>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-content">
+          <div class="tl-date">Sekarang & seterusnya</div>
+          <h3>Website ini dibuat 💌</h3>
+          <p>Dan akhirnya aku tuangkan sedikit perasaan ini ke dalam sebuah website bukan hanya agar aku belajar soal skill programming tapi juga agar kamu tahu bahwa kamu terlalu berharga jika hanya diucapkan dengan chat whatsapp longtext effortless.</p>
+        </div>
+        <div class="tl-dot">💕</div>
+        <div style="flex:1"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUISI -->
+  <section class="poem-section" id="puisi">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:rgba(255,107,157,0.2); color:#ff8fab;">✍️ Puisi</span>
+    </div>
+    <div class="section-title" style="color:#fff;">Untukmu, Livia Erwanto</div>
+    <p class="section-sub">Ditulis dari sudut hati yang paling jujur</p>
+    <div class="poem-wrapper fade-in">
+      <div class="poem-stars">✦ ✦ ✦</div>
+      <div class="poem-text">
+        Di antara ribuan kata yang pernah kupelajari,<br/>
+        <span class="poem-line-highlight">tidak ada yang cukup untuk menggambarkan kamu.</span><br/><br/>
+        Seperti senja yang tidak bisa dijepret sempurna <br/>
+        keindahanmu hanya bisa dirasakan, bukan dijelaskan - Eak Cukurukuk.<br/><br/>
+        <span class="poem-line-highlight">Kamu adalah bab favoritku</span><br/>
+        dalam sebuah buku yang belum selesai.<br/><br/>
+        Dan aku berharap,<br/>
+        kita masih punya banyak halaman yang tersisa.<br/><br/>
+        <span class="poem-line-highlight"> dari Audrey Exel, untukmu</span>
+      </div>
+      <div class="poem-stars">✦ ✦ ✦</div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="galeri">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:#fce7f3; color:#db2777;">📸 Galeri</span>
+    </div>
+    <div class="section-title">Kenangan Kita</div>
+    <p class="section-sub">Tempat untuk foto-foto terbaik kita (ganti dengan foto aslinya ya! 😄)</p>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in"><img src="fotobersama1.jpeg" alt="Foto Livia"></div>
+      <div class="gallery-item fade-in"><img src="fotobersama2.jpeg" alt="Foto Livia"></div>
+      <div class="gallery-item fade-in"><img src="fotobersama3.jpeg" alt="Foto Livia"></div>
+      <div class="gallery-item fade-in"><img src="fotobersama4.jpeg" alt="Foto Livia"></div>
+      <div class="gallery-item fade-in"><img src="fotobersama5.jpeg" alt="Foto Livia"></div>
+    </div>
+    <p class="gallery-note">💡 Lucu nggak hahaha? tapi maaf momennya masih sedikit, bantu banyakin dong xixixi"</p>
+  </section>
+
+  <!-- PROMISE -->
+  <section class="promise" id="janji">
+    <div style="text-align:center;">
+      <span class="section-label" style="background:#fdf4ff; color:#9333ea;">🤞 Janji</span>
+    </div>
+    <div class="section-title">Janjiku Untukmu</div>
+    <p class="section-sub">Bukan janji besar cukup hal-hal kecil yang kutulis dengan tulus</p>
+    <div class="promise-cards">
+      <div class="promise-card fade-in">
+        <div class="promise-icon">😊</div>
+        <h3>Selalu ada</h3>
+        <p>Di hari-hari susah maupun senang, aku mau untuk selalu ada sebagai orang yang bisa kamu andalkan.</p>
+      </div>
+      <div class="promise-card fade-in">
+        <div class="promise-icon">🤫</div>
+        <h3>Merahasiakanmu</h3>
+        <p>Cerita dan rahasia yang kamu percayakan padaku, aman bersamaku. Jadi ingatlah Aku.</p>
+      </div>
+      <div class="promise-card fade-in">
+        <div class="promise-icon">📣</div>
+        <h3>Selalu mendukungmu</h3>
+        <p>Apapun yang kamu kejar, aku akan jadi supporter nomor satu yang paling berisik untuk bocil yang paling bawel. 😄</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Livia Erwanto 💕</h2>
+    <p>
+      Aku tidak tahu apa yang akan terjadi ke depannya.
+      Tapi aku tahu satu hal, <strong>kamu spesial</strong>,
+      dan aku sangat bersyukur mengenalmu.
+    </p>
+    <a href="https://wa.me/6281385484472" class="btn-white">💬 Balas Surat Ini</a>
+    <div class="final-hearts">💕 🌸 ✨ 🌸 💕</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">For Livia 💕</div>
+    <p>Dibuat dengan ❤️ oleh Audrey Exel Gunawan · 2026</p>
+    <p style="margin-top:8px; font-size:12px; opacity:0.5;">"Some feelings are too big for words so I build a website."</p>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    // Floating hearts
+    const heartsContainer = document.getElementById('hearts');
+    const heartEmojis = ['💕','🌸','✨','💗','🌷','💖','⭐','🦋'];
+    for (let i = 0; i < 18; i++) {
+      const heart = document.createElement('span');
+      heart.classList.add('heart');
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
+      heart.style.animationDelay = (Math.random() * 8) + 's';
+      heart.style.fontSize = (Math.random() * 16 + 12) + 'px';
+      heartsContainer.appendChild(heart);
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Navbar smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
